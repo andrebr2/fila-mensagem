@@ -1,0 +1,30 @@
+# 📨 Projeto Java + RabbitMQ (Fila de Mensagens)
+
+Este projeto demonstra o uso do "RabbitMQ" como fila de mensagens entre 
+produtores e consumidores, implementado com Spring Boot e Docker.
+
+---
+
+## Tecnologias
+- Java 21
+- Spring Boot
+- RabbitMQ
+- Docker
+
+---
+
+## Subir o RabbitMQ via Docker
+No terminal, execute o comando:
+docker run -d --hostname rabbit --name rabbit \
+ -p 5672:5672 -p 15672:15672 \
+ rabbitmq:3-management
+ 
+ Acesse o painel em:
+--> URL: http://localhost:15672
+--> Login: guest
+--> Senha: guest
+
+## Execução da aplicação
+No teminal, na pasta do projeto, execute:
+./mvnw spring-boot:run
+

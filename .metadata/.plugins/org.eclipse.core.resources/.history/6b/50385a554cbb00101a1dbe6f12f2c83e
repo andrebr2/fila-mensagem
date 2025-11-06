@@ -1,0 +1,24 @@
+package com.example.fila_mensagem.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.fila_mensagem.produtor.MensagemProdutor;
+
+@RestController
+@RequestMapping("/api/mensagens")
+public class MensagemController {
+
+	@Autowired
+    private MensagemProdutor produtor;
+
+    @PostMapping
+    public String sendMessage(@RequestParam String text) {
+        produtor.sendMessage(text);
+        return "Mensagem enviada: " + text;
+    }
+	
+}
