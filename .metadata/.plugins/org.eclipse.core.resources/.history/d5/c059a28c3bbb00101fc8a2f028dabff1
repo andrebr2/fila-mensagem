@@ -1,0 +1,13 @@
+package consumidor;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MensagemConsumidor {
+
+	@RabbitListener(queues = RabbitMQConfig.QUEUE_NAME)
+    public void receiveMessage(String message) {
+        System.out.println("Recebido: " + message);
+    }
+	
+}
