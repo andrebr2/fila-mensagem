@@ -1,0 +1,16 @@
+package controller;
+
+@RestController
+@RequestMapping("/api/messages")
+public class MensagemController {
+
+	@Autowired
+    private MensagemProdutor produtor;
+
+    @PostMapping
+    public String sendMessage(@RequestParam String text) {
+        produtor.sendMessage(text);
+        return "Mensagem enviada: " + text;
+    }
+	
+}
